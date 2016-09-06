@@ -1,0 +1,7 @@
+<% if @species.any? %>
+  <ul>
+  <% @species.each do | animal | %>
+  <li><%= link_to animal.name, species_path(animal) %></li>
+  <% end %>
+  </ul>
+<% end %>
