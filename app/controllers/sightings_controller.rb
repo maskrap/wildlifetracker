@@ -7,9 +7,9 @@ class SightingsController < ApplicationController
   end
 
   def create
+    #binding.pry
     @species = Species.find(params[:species_id])
     @sighting = @species.sightings.new(sighting_params)
-    @region = @sightings.region.new(params[:regions_id])
     if @sighting.save
       redirect_to species_path(@sighting.species)
     else
@@ -18,7 +18,7 @@ class SightingsController < ApplicationController
   end
 
   def edit
-    @species = Species.find(params[:id])
+    @species = Species.find(params[:species_id])
     @sighting = Sighting.find(params[:id])
     render :edit
   end
@@ -44,6 +44,6 @@ class SightingsController < ApplicationController
 
   private
     def sighting_params
-      params.require(:sighting).permit(:description)
+      params.require(:sighting).permit(:region_id, :date, :longitude, :latitude)
     end
 end

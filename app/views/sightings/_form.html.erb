@@ -3,11 +3,11 @@
 
 <%= form_for [@species, @sighting] do | field | %>
   <%= field.label :date %>
-  <%= field.text_field :date %>
+  <%= field.date_field :date %>
   <%= field.label :longitude %>
-  <%= field.text_field :longitude %>
+  <%= field.number_field :longitude %>
   <%= field.label :latitude %>
-  <%= field.text_field :latitude %>
+  <%= field.number_field :latitude %>
   <%= field.label :region_id %>
   <%= field.collection_select :region_id, Region.all, :id, :name %>
   <%= field.submit %>
